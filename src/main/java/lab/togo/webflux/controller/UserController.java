@@ -1,6 +1,8 @@
 package lab.togo.webflux.controller;
 
 import lab.togo.webflux.domain.User;
+import lab.togo.webflux.exception.CheckException;
+import lab.togo.webflux.util.CheckUtil;
 import lab.togo.webflux.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -87,6 +89,7 @@ public class UserController {
         // 根据实际情况是否置空id
         log.debug("create: {}", user);
         user.setId(null);
+        CheckUtil.checkName(user.getName());
         return this.repository.save(user);
     }
 
@@ -100,6 +103,7 @@ public class UserController {
     @PutMapping("/{id}")
     public Mono<ResponseEntity<User>> update(@PathVariable("id") String id, @Valid @RequestBody User user) {
         log.debug("update -- {}", user);
+        CheckUtil.checkName(user.getName());
         return this.repository.findById(id)
 //                flatMap： 需要修改数据使用
                 .flatMap(u -> {

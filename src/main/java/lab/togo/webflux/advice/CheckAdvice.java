@@ -1,5 +1,6 @@
 package lab.togo.webflux.advice;
 
+import lab.togo.webflux.exception.CheckException;
 import lab.togo.webflux.vo.ErrMsg;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,14 @@ public class CheckAdvice {
     public ResponseEntity<List<ErrMsg>> handleBindException(WebExchangeBindException ex) {
         return new ResponseEntity<>(ex.getFieldErrors().stream()
                 .map(e -> ErrMsg.builder().field(e.getField()).msg(e.getDefaultMessage()).build()).collect(Collectors.toList()),
+                HttpStatus.BAD_REQUEST);
+    }
+
+
+    @ExceptionHandler(CheckException.class)
+    public ResponseEntity<ErrMsg> handleCheckException(CheckException ex) {
+        ex.getErrMsg().setMsg("错误的值："+ex.getErrMsg().getMsg());
+        return new ResponseEntity<>(ex.getErrMsg(),
                 HttpStatus.BAD_REQUEST);
     }
 
