@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/webflux
+logging:
+  level.lab.togo.webflux: debug
