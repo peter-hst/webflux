@@ -30,6 +30,31 @@
 			"response": []
 		},
 		{
+			"name": "findAll-router",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/route/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"route",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "create",
 			"request": {
 				"method": "POST",
@@ -53,6 +78,38 @@
 					],
 					"port": "8080",
 					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-router",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Monkey\",\n\t\"age\":\"77\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/route/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"route",
 						"user",
 						""
 					]
@@ -85,6 +142,31 @@
 			"response": []
 		},
 		{
+			"name": "deleteById-router",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/route/user/5c6a6b6c05f2fa2eccaeeb59",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"route",
+						"user",
+						"5c6a6b6c05f2fa2eccaeeb59"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "update",
 			"request": {
 				"method": "PUT",
@@ -110,6 +192,38 @@
 					"path": [
 						"user",
 						"w1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-router",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"w1\"\n\t\"name\":\"Kote\",\n\t\"age\": \"3\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/route/user/5c6a420305f2fa0f587ae3b8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"route",
+						"user",
+						"5c6a420305f2fa0f587ae3b8"
 					]
 				}
 			},
